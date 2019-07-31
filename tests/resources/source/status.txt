@@ -1,0 +1,1 @@
+{"\/Users\/coen\/Projects\/packages\/pxlwidgets-filebeat-emulator\/tests\/resources\/source\/fakelogfile02.txt":20,"\/Users\/coen\/Projects\/packages\/pxlwidgets-filebeat-emulator\/tests\/resources\/source\/fakelogfile03.txt":25}
