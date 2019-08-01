@@ -25,7 +25,7 @@ use PXLWidgets\FilebeatEmulator\Config\Config;
 use PXLWidgets\FilebeatEmulator\Config\SourceConfig;
 use PXLWidgets\FilebeatEmulator\Config\ProcessConfig;
 use PXLWidgets\FilebeatEmulator\Config\TargetConfig;
-use PXLWidgets\FilebeatEmulator\Contracts\Process\LogProcessorFactory;
+use PXLWidgets\FilebeatEmulator\Process\LogProcessorFactory;
 
 // Provide log paths using glob wildcard patterns to define which logs should be processed.
 $logPaths   = ['/home/some/path/log-*.txt', '/other/path/*.log'];

@@ -1,11 +1,11 @@
 <?php
 
-namespace PXLWidgets\FilebeatEmulator\Contracts\Process;
+namespace PXLWidgets\FilebeatEmulator\Process;
 
 use PXLWidgets\FilebeatEmulator\Contracts\Config\ConfigInterface;
 use PXLWidgets\FilebeatEmulator\Contracts\Config\SourceConfigInterface;
+use PXLWidgets\FilebeatEmulator\Contracts\Process\LogProcessorInterface;
 use PXLWidgets\FilebeatEmulator\Contracts\Source\LogFileStatusInterface;
-use PXLWidgets\FilebeatEmulator\Process\LogProcessor;
 use PXLWidgets\FilebeatEmulator\Source\LogFileStatus;
 use PXLWidgets\FilebeatEmulator\Source\LogFinder;
 use PXLWidgets\FilebeatEmulator\Source\LogReader;
