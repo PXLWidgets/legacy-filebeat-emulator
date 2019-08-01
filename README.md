@@ -6,6 +6,12 @@ The idea is to run a process provided by this package in a cron task (say, every
 
 All logged data should be valid JSON for this to work.
 
+
+## Change log
+
+[View the changelog](CHANGELOG.md).
+
+
 ## Warning
 
 This is a CRUDE approach, and should only be considered for cases where:
