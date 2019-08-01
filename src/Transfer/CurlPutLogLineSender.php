@@ -43,7 +43,8 @@ class CurlPutLogLineSender implements LogSenderInterface
             curl_setopt($curl, CURLOPT_HTTPHEADER, $this->formatHeadersForCurl($this->config->headers()));
         }
 
-        $response = curl_exec($curl);
+        $response     = curl_exec($curl);
+        $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         $error = curl_error($curl);
 
@@ -53,17 +54,22 @@ class CurlPutLogLineSender implements LogSenderInterface
             throw new FailedToReadLogFileException("Failed to send to '{$this->config->host()}': {$error}");
         }
 
-        if ($this->isUnexpectedResponse($response)) {
+        if ($this->isUnexpectedResponse($responseCode, $response)) {
             throw new FailedToReadLogFileException(
-                "Unexpected response from server '{$this->config->host()}': {$response}"
+                "Unexpected response from server '{$this->config->host()}' (HTTP code {$responseCode}): {$response}"
             );
         }
     }
 
 
-    protected function isUnexpectedResponse($response)
+    /**
+     * @param int    $responseCode
+     * @param string $response
+     * @return bool
+     */
+    protected function isUnexpectedResponse($responseCode, $response)
     {
-        return strtolower(trim($response)) !== 'ok';
+        return $responseCode < 200 || $responseCode > 299;
     }
 
     /**
