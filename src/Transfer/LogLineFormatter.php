@@ -31,8 +31,8 @@ class LogLineFormatter implements LogFormatterInterface
         $array = json_decode($line, true) ?: [];
 
         // Ensure timestamp
-        if ( ! array_key_exists('@timestamp', $array)) {
-            $array['@timestamp'] = $this->getCurrentTimestamp();
+        if ( ! array_key_exists('timestamp', $array)) {
+            $array['timestamp'] = $this->getCurrentTimestamp();
         }
 
         if ($this->config->index()) {
@@ -68,9 +68,8 @@ class LogLineFormatter implements LogFormatterInterface
      */
     protected function getCurrentTimestamp()
     {
-        // Like: 2019-07-30T13:25:59.031Z
-        return date('Y-m-d\TH:i:')
-             . sprintf('%05.3f', date('s') + fmod(microtime(true), 1)) . 'Z';
+        return date('Y-m-d H:i:')
+             . sprintf('%05.3f', date('s') + fmod(microtime(true), 1));
     }
 
     /**

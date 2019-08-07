@@ -27,7 +27,7 @@ class LogLineFormatterTest extends TestCase
         $log = new ReadableLog('testing/tmp.txt', 0);
 
         $line = json_encode([
-            '@timestamp' => '2019-07-30T13:25:59.031Z',
+            'timestamp'  => '2019-07-30 13:25:59.031',
             'channel'    => 'testing',
             'category'   => 'more testing',
             'message'    => 'log line text here',
@@ -43,8 +43,8 @@ class LogLineFormatterTest extends TestCase
 
         $array = json_decode($output, true);
 
-        static::assertArrayHasKey('@timestamp', $array);
-        static::assertEquals('2019-07-30T13:25:59.031Z', $array['@timestamp']);
+        static::assertArrayHasKey('timestamp', $array);
+        static::assertEquals('2019-07-30 13:25:59.031', $array['timestamp']);
 
         static::assertArrayHasKey('some', $array, 'Extra data was not added');
         static::assertEquals('extra data', $array['some']);
@@ -87,8 +87,8 @@ class LogLineFormatterTest extends TestCase
 
         $array = json_decode($output, true);
 
-        static::assertArrayHasKey('@timestamp', $array);
-        static::assertRegExp('#^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$#', $array['@timestamp']);
+        static::assertArrayHasKey('timestamp', $array);
+        static::assertRegExp('#^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}$#', $array['timestamp']);
     }
 
 }
