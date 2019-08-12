@@ -89,3 +89,6 @@ You are encouraged to use environment variables and framework DI-solutions where
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+
+[link-contributors]: ../../contributors
